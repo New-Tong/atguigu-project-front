@@ -1,7 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
-    <!-- 组件渲染位置 -->
+    <h1>NotFound</h1>
   </div>
 </template>
 

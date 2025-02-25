@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-    <!-- 组件渲染位置 -->
-  </div>
+  <div></div>
 </template>
 
 <script setup lang="ts"></script>

@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
+    "build:test": "vue-tsc && vite build --mode test",
+    "build:pro": "vue-tsc && vite build --mode production",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src",
@@ -17,7 +19,13 @@
     "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.7.9",
+    "element-plus": "^2.9.5",
+    "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.8",
@@ -32,8 +40,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-vue": "^9.32.0",
+    "fast-glob": "^3.3.3",
     "globals": "^16.0.0",
     "husky": "^8.0.0",
+    "mockjs": "^1.1.0",
     "postcss": "^8.5.3",
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
@@ -52,6 +62,8 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.1.0",
+    "vite-plugin-mock": "^3.0.2",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^2.2.0"
   }
 }
