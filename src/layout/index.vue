@@ -1,17 +1,25 @@
 <template>
   <div class="common-layout">
     <div>
-      <div class="Aside">
+      <!-- 左侧菜单 -->
+      <div class="layout_aside">
         <Logo></Logo>
+        <!-- 滚动组件 -->
         <el-scrollbar class="scrollbar">
+          <!-- 菜单组件 -->
           <el-menu>
+            <!-- 根据路由动态生成菜单 -->
             <AsideMenu :menuList="routerStore.routes"></AsideMenu>
           </el-menu>
         </el-scrollbar>
       </div>
       <div>
-        <div class="Header">Header</div>
-        <div class="Main">Main</div>
+        <!-- 顶部导航栏 -->
+        <div class="layout_tabbar">Header</div>
+        <!-- 内容展示区 -->
+        <div class="layout_main">
+          <TheMain></TheMain>
+        </div>
       </div>
     </div>
   </div>
@@ -21,15 +29,15 @@
 import Logo from "./logo/index.vue";
 import AsideMenu from "./menu/index.vue";
 import useRouterStore from "@/store/modules/router";
+import TheMain from "@/layout/main/index.vue";
 let routerStore = useRouterStore();
-console.log(routerStore.routes);
 </script>
 
 <style scoped lang="scss">
 .common-layout {
   width: 100%;
   height: 100vh;
-  .Aside {
+  .layout_aside {
     background-color: $base-aside-background-color;
     width: $base-aside-width;
     height: 100vh;
@@ -38,12 +46,13 @@ console.log(routerStore.routes);
       width: 100%;
       --el-menu-bg-color: $base-aside-background-color;
       --el-menu-text-color: white;
+      // --el-menu-hover-bg-color: none;
     }
     .el-menu {
       border-right: none;
     }
   }
-  .Header {
+  .layout_tabbar {
     position: fixed;
     top: 0px;
     left: $base-aside-width;
@@ -51,7 +60,7 @@ console.log(routerStore.routes);
     height: $base-header-height;
     width: calc(100% - $base-aside-width);
   }
-  .Main {
+  .layout_main {
     position: fixed;
     top: $base-header-height;
     left: $base-aside-width;

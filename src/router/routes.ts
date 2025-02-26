@@ -1,39 +1,63 @@
+import Login from "@/views/login/index.vue";
+import Home from "@/views/home/index.vue";
+import Layout from "@/layout/index.vue";
+import NotFound from "@/views/notFound/index.vue";
+import Screen from "@/views/screen/index.vue";
+import Menu from "@/views/acl/menu/index.vue";
+import User from "@/views/acl/user/index.vue";
+import Role from "@/views/acl/role/index.vue";
+import Attribute from "@/views/product/attribute/index.vue";
+import SKU from "@/views/product/sku/index.vue";
+import SPU from "@/views/product/spu/index.vue";
+import Trademark from "@/views/product/trademark/index.vue";
+
 export const constantRoutes = [
   {
-    path: "/",
-    component: () => import("@/views/home/index.vue"),
-    name: "home",
+    //登录成功以后展示数据的路由
+    path: '/',
+    component: Layout,
+    name: 'layout',
     meta: {
+      title: '',
       show: true,
-      title: "首页",
-      icon: "HomeFilled",
+      icon: '',
     },
+    redirect: '/home',
+    children: [
+      {
+        path: '/home',
+        component: Home,
+        meta: {
+          title: '首页',
+          show: true,
+          icon: 'HomeFilled',
+        },
+      },
+    ],
   },
   {
     path: "/login",
-    component: () => import("@/views/login/index.vue"),
+    component: Login,
     name: "login",
     meta: {
       show: false,
       title: "登录",
       icon: "",
     },
-    children: [
-      {
-        path: "/register",
-        component: () => import("@/views/login/index.vue"),
-        name: "register",
-        meta: {
-          show: false,
-          title: "注册",
-          icon: "",
-        },
-      },
-    ],
+  },
+  {
+    path: "/register",
+    component: Login,
+    name: "register",
+    meta: {
+      show: false,
+      title: "注册",
+      icon: "",
+    },
   },
   {
     path: "/dataShow",
-    component: () => import("@/views/home/index.vue"),
+    component: Screen,
     name: "dataShow",
     meta: {
       show: true,
@@ -43,7 +67,7 @@ export const constantRoutes = [
   },
   {
     path: "/acl",
-    component: () => import("@/layout/index.vue"),
+    component: Layout,
     name: "acl",
     meta: {
       show: true,
@@ -52,9 +76,9 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: "/userAcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "userAcl",
+        path: "/acl/user",
+        component: User,
+        name: "user",
         meta: {
           show: true,
           title: "用户管理",
@@ -62,9 +86,9 @@ export const constantRoutes = [
         },
       },
       {
-        path: "/roleAcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "roleAcl",
+        path: "/acl/role",
+        component: Role,
+        name: "role",
         meta: {
           show: true,
           title: "角色管理",
@@ -72,21 +96,21 @@ export const constantRoutes = [
         },
       },
       {
-        path: "/menuAcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "menuAcl",
+        path: "/acl/menu",
+        component: Menu,
+        name: "menu",
         meta: {
           show: true,
           title: "菜单管理",
-          icon: "Menu",
+          icon: "Monitor",
         },
       },
     ],
   },
   {
-    path: "/ccl",
-    component: () => import("@/layout/index.vue"),
-    name: "ccl",
+    path: "/product",
+    component: Layout,
+    name: "product",
     meta: {
       show: true,
       title: "商品管理",
@@ -94,9 +118,9 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: "/brandCcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "brandCcl",
+        path: "/product/trademark",
+        component: Trademark,
+        name: "trademark",
         meta: {
           show: true,
           title: "品牌管理",
@@ -104,9 +128,9 @@ export const constantRoutes = [
         },
       },
       {
-        path: "/propertyCcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "propertyCcl",
+        path: "/product/attribute",
+        component: Attribute,
+        name: "attribute",
         meta: {
           show: true,
           title: "属性管理",
@@ -114,9 +138,9 @@ export const constantRoutes = [
         },
       },
       {
-        path: "/spuCcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "spuCcl",
+        path: "/product/spu",
+        component: SPU,
+        name: "spu",
         meta: {
           show: true,
           title: "SPU管理",
@@ -124,9 +148,9 @@ export const constantRoutes = [
         },
       },
       {
-        path: "/skuCcl",
-        component: () => import("@/views/home/index.vue"),
-        name: "skuCcl",
+        path: "/product/sku",
+        component: SKU,
+        name: "sku",
         meta: {
           show: true,
           title: "SKU管理",
@@ -137,12 +161,12 @@ export const constantRoutes = [
   },
   {
     path: "/notFound",
-    component: () => import("@/views/notFound/index.vue"),
+    component: NotFound,
     name: "notFound",
     meta: {
       show: false,
       title: "404",
-      icon: "",
+      icon: "CloseBold",
     },
   },
   {
@@ -152,7 +176,7 @@ export const constantRoutes = [
     meta: {
       show: false,
       title: "其他路由",
-      icon: "",
+      icon: "CloseBold",
     },
   },
 ];
