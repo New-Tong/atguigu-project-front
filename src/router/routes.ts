@@ -14,23 +14,23 @@ import Trademark from "@/views/product/trademark/index.vue";
 export const constantRoutes = [
   {
     //登录成功以后展示数据的路由
-    path: '/',
+    path: "/",
     component: Layout,
-    name: 'layout',
+    name: "layout",
     meta: {
-      title: '',
+      title: "",
       show: true,
-      icon: '',
+      icon: "",
     },
-    redirect: '/home',
+    redirect: "/home",
     children: [
       {
-        path: '/home',
+        path: "/home",
         component: Home,
         meta: {
-          title: '首页',
+          title: "首页",
           show: true,
-          icon: 'HomeFilled',
+          icon: "HomeFilled",
         },
       },
     ],
