@@ -1,5 +1,5 @@
 <template>
-  <div class="common-layout">
+  <div class="layout_container">
     <div>
       <!-- 左侧菜单 -->
       <div class="layout_aside">
@@ -7,7 +7,7 @@
         <!-- 滚动组件 -->
         <el-scrollbar class="scrollbar">
           <!-- 菜单组件 -->
-          <el-menu>
+          <el-menu :default-active="route.path" unique-opened>
             <!-- 根据路由动态生成菜单 -->
             <AsideMenu :menuList="routerStore.routes"></AsideMenu>
           </el-menu>
@@ -15,7 +15,9 @@
       </div>
       <div>
         <!-- 顶部导航栏 -->
-        <div class="layout_tabbar">Header</div>
+        <div class="layout_tabbar">
+          <Tabbar></Tabbar>
+        </div>
         <!-- 内容展示区 -->
         <div class="layout_main">
           <TheMain></TheMain>
@@ -30,14 +32,19 @@ import Logo from "./logo/index.vue";
 import AsideMenu from "./menu/index.vue";
 import useRouterStore from "@/store/modules/router";
 import TheMain from "@/layout/main/index.vue";
+import Tabbar from "@/layout/tabbar/index.vue";
+import { useRoute } from "vue-router";
 let routerStore = useRouterStore();
+let route = useRoute();
+console.log(route.path);
 </script>
 
 <style scoped lang="scss">
-.common-layout {
+.layout_container {
   width: 100%;
   height: 100vh;
   .layout_aside {
+    color: white;
     background-color: $base-aside-background-color;
     width: $base-aside-width;
     height: 100vh;
@@ -46,7 +53,7 @@ let routerStore = useRouterStore();
       width: 100%;
       --el-menu-bg-color: $base-aside-background-color;
       --el-menu-text-color: white;
-      // --el-menu-hover-bg-color: none;
+      --el-menu-hover-bg-color: rgb(113, 119, 106);
     }
     .el-menu {
       border-right: none;

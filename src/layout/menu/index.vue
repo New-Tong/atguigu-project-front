@@ -4,7 +4,9 @@
     <template v-if="!item.children">
       <el-menu-item v-if="item.meta.show" :index="item.path" @click="goRoute">
         <el-icon><component :is="item.meta.icon" /></el-icon>
-        <span>{{ item.meta.title }}</span>
+        <template #title>
+          <span>{{ item.meta.title }}</span>
+        </template>
       </el-menu-item>
     </template>
     <template v-else-if="item.children && item.children.length === 1">
@@ -15,7 +17,9 @@
         @click="goRoute"
       >
         <el-icon><component :is="item.children[0].meta.icon" /></el-icon>
-        <span>{{ item.children[0].meta.title }}</span>
+        <template #title>
+          <span>{{ item.children[0].meta.title }}</span>
+        </template>
       </el-menu-item>
     </template>
     <!-- 有多个子路由，递归展示 -->
