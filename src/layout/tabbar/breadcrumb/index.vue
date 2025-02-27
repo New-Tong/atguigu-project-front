@@ -1,7 +1,7 @@
 <template>
   <div class="tabbar_left">
-    <el-icon style="margin-right: 10px" size="20px" @click="toggleIcon">
-      <component :is="isFolded ? Expand : Fold" />
+    <el-icon style="margin-right: 10px" size="20px" @click="changeIcon">
+      <component :is="layoutStore.isFold ? Expand : Fold" />
     </el-icon>
     <el-breadcrumb separator-icon="ArrowRight">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -12,19 +12,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { Fold, Expand } from "@element-plus/icons-vue";
-
+import useLayoutStore from "@/store/modules/layout";
+let layoutStore = useLayoutStore();
 // 定义一个响应式变量来存储图标状态
-const isFolded = ref(true);
 
 // 切换图标的函数
-const toggleIcon = () => {
+const changeIcon = () => {
   // 这里添加折叠侧边栏的逻辑
-  isFolded.value = !isFolded.value;
+  layoutStore.isFold = !layoutStore.isFold;
 };
 </script>
-
+<script lang="ts">
+export default {
+  name: "Breadcrumb",
+};
+</script>
 <style scoped>
 .tabbar_left {
   display: flex;
