@@ -17,7 +17,6 @@ export default {
 .logo {
   width: $logo-weight;
   height: $logo-height;
-  color: $loge-font-color;
   display: flex;
   align-items: center;
   padding-left: $logo-padding-left;

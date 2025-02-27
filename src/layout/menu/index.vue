@@ -53,5 +53,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/* 如果有特定样式需求，可以在这里添加 */
+.el-sub-menu.is-opened .el-menu.el-menu--inline .el-menu-item:hover {
+  background-color: $base-aside-sub-menu-hover-color;
+}
+.el-sub-menu .el-menu {
+  color: $base-aside-sub-menu-color;
+  background-color: $base-aside-sub-menu-color;
+}
+.el-menu.el-menu--vertical .el-menu-item:hover {
+  background-color: $base-aside-menu-hover-color;
+}
+
+.el-menu-item.is-active,
+.el-sub-menu.is-active
+  .el-sub-menu__title.el-tooltip__trigger.el-tooltip__trigger
+  .el-icon {
+  color: $base-aside-menu-active-color;
+}
 </style>

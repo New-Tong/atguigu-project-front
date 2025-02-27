@@ -19,7 +19,7 @@ export const constantRoutes = [
     name: "layout",
     meta: {
       title: "",
-      show: true,
+      show: false,
       icon: "",
     },
     redirect: "/home",
@@ -27,6 +27,7 @@ export const constantRoutes = [
       {
         path: "/home",
         component: Home,
+        name: "home",
         meta: {
           title: "首页",
           show: true,
@@ -167,6 +168,7 @@ export const constantRoutes = [
       show: false,
       title: "404",
       icon: "CloseBold",
+      // 面包屑显示标志
     },
   },
   {
@@ -177,6 +179,7 @@ export const constantRoutes = [
       show: false,
       title: "其他路由",
       icon: "CloseBold",
+      // 面包屑显示标志
     },
   },
 ];

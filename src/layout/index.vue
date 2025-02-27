@@ -11,6 +11,7 @@
             :default-active="route.path"
             unique-opened
             :collapse="layoutStore.isFold"
+            class="layout-aside-menu"
           >
             <!-- 根据路由动态生成菜单 -->
             <AsideMenu :menuList="routerStore.routes"></AsideMenu>
@@ -49,6 +50,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+/* 覆盖 Element Plus 的 CSS 变量 */
 .layout_container {
   width: 100%;
   height: 100vh;
@@ -61,14 +63,10 @@ export default {
     .scrollbar {
       height: calc(100vh - $logo-height);
       width: 100%;
-      --el-menu-bg-color: $base-aside-background-color;
-      --el-menu-text-color: white;
-      --el-menu-hover-bg-color: rgb(113, 119, 106);
     }
     .el-menu {
       border-right: none;
     }
-
     &.fold {
       width: $base-aside-folded-width;
     }
