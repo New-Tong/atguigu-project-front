@@ -1,6 +1,6 @@
 <template>
   <div class="tabbar_left">
-    <el-icon style="margin-right: 10px" size="20px" @click="changeIcon">
+    <el-icon style="margin-right: 10px" size="24px" @click="changeIcon">
       <component :is="layoutStore.isFold ? Expand : Fold" />
     </el-icon>
     <el-breadcrumb separator-icon="ArrowRight">
@@ -11,6 +11,7 @@
         class="breadcrumb"
         v-for="(item, index) in levelList"
         :key="index"
+        :to="{ path: item.path }"
       >
         <span v-if="item.meta.title !== '首页'">
           {{ item.meta.title }}
@@ -70,18 +71,6 @@ export default {
 /* 可选：为图标添加一些样式 */
 .el-icon {
   cursor: pointer; /* 让图标可以点击 */
-}
-
-/* 自定义 el-breadcrumb-item 样式 */
-.custom-breadcrumb-item {
-  font-weight: bold; /* 加粗字体 */
-  cursor: pointer; /* 鼠标悬停时显示手型指针 */
-}
-
-/* 如果需要对单个 breadcrumb-item 应用特定样式 */
-.el-breadcrumb__item:last-child .custom-breadcrumb-item {
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .breadcrumb {

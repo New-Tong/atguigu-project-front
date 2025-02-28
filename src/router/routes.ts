@@ -70,6 +70,7 @@ export const constantRoutes = [
     path: "/acl",
     component: Layout,
     name: "acl",
+    redirect: "/acl/user",
     meta: {
       show: true,
       title: "权限管理",
@@ -111,6 +112,7 @@ export const constantRoutes = [
   {
     path: "/product",
     component: Layout,
+    redirect: "/product/trademark",
     name: "product",
     meta: {
       show: true,
