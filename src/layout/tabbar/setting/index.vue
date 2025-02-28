@@ -1,7 +1,7 @@
 <template>
   <div class="tabbar_right">
     <el-button icon="Refresh" circle @click="refresh"></el-button>
-    <el-button icon="FullScreen" circle></el-button>
+    <el-button icon="FullScreen" circle @click="fullScreen"></el-button>
     <el-button icon="Setting" circle></el-button>
     <!-- 用户头像 -->
     <img class="user_img" src="../../../../public/atguigu.png" />
@@ -25,6 +25,14 @@
 <script setup lang="ts">
 import useLayoutStore from "@/store/modules/layout";
 let layoutStore = useLayoutStore();
+const fullScreen = () => {
+  let full = document.fullscreenElement;
+  if (!full) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+};
 const refresh = () => {
   layoutStore.isRefresh = !layoutStore.isRefresh;
 };
@@ -38,6 +46,7 @@ export default {
 .tabbar_right {
   display: flex;
   align-items: center;
+  margin-right: 15px;
   .user_img {
     margin-left: 10px;
     margin-right: 5px;
