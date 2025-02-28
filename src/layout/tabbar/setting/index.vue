@@ -1,6 +1,6 @@
 <template>
   <div class="tabbar_right">
-    <el-button icon="Refresh" circle></el-button>
+    <el-button icon="Refresh" circle @click="refresh"></el-button>
     <el-button icon="FullScreen" circle></el-button>
     <el-button icon="Setting" circle></el-button>
     <!-- 用户头像 -->
@@ -22,7 +22,13 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useLayoutStore from "@/store/modules/layout";
+let layoutStore = useLayoutStore();
+const refresh = () => {
+  layoutStore.isRefresh = !layoutStore.isRefresh;
+};
+</script>
 <script lang="ts">
 export default {
   name: "Setting",
