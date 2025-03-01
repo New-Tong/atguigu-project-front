@@ -53,7 +53,6 @@ watch(
 );
 // 初始化时获取面包屑
 updateBreadcrumb();
-console.log(levelList.value);
 </script>
 <script lang="ts">
 export default {

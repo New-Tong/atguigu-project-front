@@ -27,6 +27,7 @@ export default {
   p {
     font-size: $title-font-size;
     margin-left: $title-padding-left;
+    white-space: nowrap;
   }
 }
 </style>

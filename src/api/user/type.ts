@@ -4,7 +4,7 @@ export interface loginReqData {
 }
 
 // 成功和失败响应数据的类型定义
-export interface DataType {
+export interface LoginRespDataType {
   token?: string;
   message?: string;
 }
@@ -12,10 +12,10 @@ export interface DataType {
 // 定义一个泛型接口来统一处理不同的data类型
 export interface LoginResponse {
   code: number;
-  data: DataType;
+  data: LoginRespDataType;
 }
 
-interface userInfoData {
+export interface userInfoData {
   userId: number;
   avatar: string;
   username: string;
@@ -29,5 +29,10 @@ interface userInfoData {
 
 export interface userInfoRespData {
   code: number;
-  data: userInfoData;
+  data: userInfoRespDataType;
+}
+
+interface userInfoRespDataType {
+  info?: userInfoData;
+  message?: string;
 }

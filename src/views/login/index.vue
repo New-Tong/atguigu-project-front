@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { User, Lock } from "@element-plus/icons-vue";
 import { reactive, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 // import { ElMessage } from 'element-plus';
 import useUserStore from "@/store/modules/user";
 import { ElNotification } from "element-plus";
@@ -56,6 +56,7 @@ const userStore = useUserStore();
 let loginFormRef = ref();
 let loading = ref(false);
 const router = useRouter();
+const route = useRoute();
 // const loginRules = {
 //   username: [
 //     { required: true, message: "用户名不能为空", trigger: "blur" },
@@ -104,7 +105,10 @@ const login = async () => {
   loading.value = true;
   try {
     await userStore.userLogin(loginForm);
-    router.push("/");
+    const redirectPath = route.query.redirect
+      ? String(route.query.redirect)
+      : "/";
+    router.push(redirectPath);
     const time = getTime();
     ElNotification({
       type: "success",

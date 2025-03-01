@@ -9,6 +9,7 @@ import globalComponent from "./components";
 import "virtual:svg-icons-register";
 import router from "./router";
 import pinia from "./store";
+// import permission from "@/router/permission";
 
 const app = createApp(App);
 app.use(router);
@@ -17,5 +18,6 @@ app.use(ElementPlus, {
   locale: zhCn,
 });
 app.use(globalComponent);
+import "@/router/permission";
 
 app.mount("#app");
