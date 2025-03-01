@@ -1,5 +1,5 @@
 export default {
-  title: "NewTong",
+  title: "善颂管理系统",
   logo: "/public/logo.jpg",
   logoShow: true,
 };
