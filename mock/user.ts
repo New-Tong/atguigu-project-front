@@ -3,7 +3,7 @@ function createUserList() {
   return [
     {
       userId: 1,
-      avatar: "http://localhost:5173/public/atguigu.png",
+      avatar: "http://localhost:5173/atguigu.png",
       username: "admin",
       password: "111111",
       desc: "平台管理员",
@@ -14,7 +14,7 @@ function createUserList() {
     },
     {
       userId: 2,
-      avatar: "http://localhost:5173/public/atguigu.png",
+      avatar: "http://localhost:5173/atguigu.png",
       username: "system",
       password: "111111",
       desc: "系统管理员",

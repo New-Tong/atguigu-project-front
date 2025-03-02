@@ -1,10 +1,6 @@
 import { defineStore } from "pinia";
 import { reqLogin, reqUserInfo, reqLogout } from "@/api/user/index";
-import type {
-  loginReqData,
-  LoginResponse,
-  userInfoData,
-} from "@/api/user/type";
+import type { loginRespData, loginReqData, userInfoRespData } from "@/api/user/type";
 import { GET_TOKEN, SET_TOKEN, REMOVE_TOKEN } from "@/utils/token";
 import type { UserState } from "./types/types";
 
@@ -18,28 +14,27 @@ export const useUserStore = defineStore("User", {
   // 定义 actions
   actions: {
     async userLogin(user: loginReqData) {
-      const result: LoginResponse = await reqLogin(user);
+      const result: loginRespData = await reqLogin(user);
       if (result.code === 200) {
         // 成功登录
-        this.token = result.data.token as string;
+        this.token = result.data as string;
         SET_TOKEN(this.token);
         return "ok";
       } else {
         // 登录失败
-        return Promise.reject(new Error(result.data.message));
+        return Promise.reject(new Error(result.data));
       }
     },
     async userInfo() {
-      const result = await reqUserInfo();
-      console.log("userInfo");
-      if (result.code === 200) {
-        const info = result.data.info as userInfoData;
-        this.username = info.username;
-        this.avatar = info.avatar;
+      const result: userInfoRespData = await reqUserInfo();
+      console.log(result);
+      if (result.ok) {
+        this.username = result.data.name;
+        this.avatar = result.data.avatar;
         return result;
       } else {
         // 登录失败
-        return Promise.reject(new Error(result.data.message));
+        return Promise.reject(new Error(result.message));
       }
     },
     async userLogout() {
