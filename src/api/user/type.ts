@@ -1,8 +1,5 @@
-export interface loginRespData {
-  code: number;
-  message: string;
+export interface loginRespData extends responseData {
   data: string;
-  ok: boolean;
 }
 
 export interface loginReqData {
@@ -10,11 +7,14 @@ export interface loginReqData {
   password: string;
 }
 
-export interface userInfoRespData {
+interface responseData {
   code: number;
-  data: userInfoDataType;
   message: string;
   ok: boolean;
+}
+
+export interface userInfoRespData extends responseData {
+  data: userInfoDataType;
 }
 
 interface userInfoDataType {
