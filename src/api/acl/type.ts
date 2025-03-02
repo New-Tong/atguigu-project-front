@@ -18,9 +18,9 @@ export interface userInfoRespData {
 }
 
 interface userInfoDataType {
-  avatar: string,
-  buttons: string[],
-  name: string,
-  roles: string[],
-  routes: string[],
+  avatar: string;
+  buttons: string[];
+  name: string;
+  roles: string[];
+  routes: string[];
 }

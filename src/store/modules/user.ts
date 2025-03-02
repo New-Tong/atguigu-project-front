@@ -1,6 +1,10 @@
 import { defineStore } from "pinia";
 import { reqLogin, reqUserInfo, reqLogout } from "@/api/user/index";
-import type { loginRespData, loginReqData, userInfoRespData } from "@/api/user/type";
+import type {
+  loginRespData,
+  loginReqData,
+  userInfoRespData,
+} from "@/api/user/type";
 import { GET_TOKEN, SET_TOKEN, REMOVE_TOKEN } from "@/utils/token";
 import type { UserState } from "./types/types";
 
