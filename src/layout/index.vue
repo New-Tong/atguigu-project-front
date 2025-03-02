@@ -88,12 +88,15 @@ export default {
     position: fixed;
     top: $base-header-height;
     left: $base-aside-width;
-    background-color: $base-main-background-color;
+    background-color: $base-header-background-color;
     height: calc(100vh - $base-header-height);
     width: calc(100% - $base-aside-width);
     padding: 20px;
     overflow: auto;
     transition: all 0.3s;
+
+    /* 添加顶部边框作为分割线 */
+    border-top: 1px solid rgb(220, 223, 230); /* 或者你想要的颜色 */
     &.fold {
       width: calc(100% - $base-aside-folded-width);
       left: $base-aside-folded-width;
