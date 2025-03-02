@@ -24,6 +24,7 @@ router.beforeEach(async (to, from, next) => {
         await userStore.userInfo();
         next(); // 获取成功后继续导航
       } catch (error) {
+        await userStore.userLogout();
         next({ path: "/login", query: { redirect: to.path } }); // 获取失败则重定向到登录页
       }
     }
