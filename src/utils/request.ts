@@ -19,18 +19,18 @@ request.interceptors.response.use(
   (response) => response.data,
   (error) => {
     let message = "";
-    const status = error.response.status;
+    const status = error.code;
     switch (status) {
-      case "401":
+      case 401:
         message = "Token 已过期";
         break;
-      case "403":
+      case 403:
         message = "访问权限不足";
         break;
-      case "404":
+      case 404:
         message = "页面不存在";
         break;
-      case "500":
+      case 500:
         message = "服务器出错";
         break;
       default:
@@ -41,8 +41,8 @@ request.interceptors.response.use(
       type: "error",
       message,
     });
-    return Promise.reject(error);
-  },
+    return Promise.reject(new Error(message));
+  }
 );
 
 export default request;
