@@ -42,7 +42,7 @@ request.interceptors.response.use(
       message,
     });
     return Promise.reject(new Error(message));
-  }
+  },
 );
 
 export default request;

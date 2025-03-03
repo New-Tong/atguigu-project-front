@@ -6,5 +6,5 @@ enum API {
 
 export const reqTrademark = (data: trademarkReqData) =>
   request.get<any, trademarkRespData>(
-    API.TRADEMARK_URL + `${data.page}/${data.limit}`
+    API.TRADEMARK_URL + `${data.page}/${data.limit}`,
   );

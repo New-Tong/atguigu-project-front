@@ -39,7 +39,7 @@ export default {
     img {
       margin-top: 5px;
       margin-bottom: 5px;
-      
+
       border-radius: 20%;
       width: $logo-img-width;
       height: $logo-img-height;
